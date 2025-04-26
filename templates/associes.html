@@ -176,15 +176,40 @@
     <script>
         let globalData = null;
 
+        // Fonction pour détecter l'environnement
+        function isLocalEnvironment() {
+            return window.location.protocol === 'file:' || 
+                   window.location.hostname === 'localhost' || 
+                   window.location.hostname === '127.0.0.1';
+        }
+
+        // Fonction pour obtenir le bon chemin vers data.json
+        function getDataPath() {
+            return isLocalEnvironment() ? '../data.json' : '/ACI-Pur/data.json';
+        }
+
         // Fonction pour charger les données depuis data.json
         async function loadData() {
             try {
-                const response = await fetch('/ACI-Pur/data.json');
+                const dataPath = getDataPath();
+                const response = await fetch(dataPath);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
                 globalData = await response.json();
                 initTableAssocies();
                 initFilterProfession();
             } catch (error) {
                 console.error('Erreur lors du chargement des données:', error);
+                // Afficher un message d'erreur à l'utilisateur
+                const tableBody = document.getElementById('liste-associes');
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6" style="text-align: center; color: red;">
+                            Erreur lors du chargement des données. Veuillez réessayer plus tard.
+                        </td>
+                    </tr>
+                `;
             }
         }
 
