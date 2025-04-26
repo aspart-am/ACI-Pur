@@ -1,0 +1,1063 @@
+{
+    "configuration": {
+        "version": "1.0",
+        "derniere_mise_a_jour": "2025-04-26T19:30:39.418Z"
+    },
+    "associes": {
+        "liste": [
+            {
+                "id": "med_001",
+                "nom": "ESPARSA Florian",
+                "profession": "Médecin",
+                "email": "dr.esparsa@gmail.com",
+                "telephone": "620464238",
+                "statut": "Cogérant",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_002",
+                "nom": "LAFITTE Jean Yves",
+                "profession": "Médecin",
+                "email": "jylafitte@gmail.com",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_001",
+                "nom": "ESPARSA Florian",
+                "profession": "Médecin",
+                "email": "dr.esparsa@gmail.com",
+                "telephone": "620464238",
+                "statut": "Cogérant",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_001",
+                "nom": "LAFITTE Jean Yves",
+                "profession": "Médecin",
+                "email": "jylafitte@gmail.com",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_001",
+                "nom": "RAIMBAULT MALLET Marie",
+                "profession": "Médecin",
+                "email": "m.raimbault80@hotmail.fr",
+                "telephone": "762458652",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_001",
+                "nom": "BOURVEN Margot",
+                "profession": "Médecin",
+                "email": "margot.bourven@gmail.com",
+                "telephone": "649529100",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "pha_001",
+                "nom": "LALIS Agnès",
+                "profession": "Pharmacien",
+                "email": "alalis@totum.fr",
+                "telephone": "662279867",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "pha_001",
+                "nom": "FERRON Valérie",
+                "profession": "Pharmacien",
+                "email": "valerie.ferron@laposte.net",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "pha_001",
+                "nom": "GAYRIN Esther",
+                "profession": "Pharmacien",
+                "email": "esther.gayrin@outlook.com",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_001",
+                "nom": "GABORIAU Sandrine",
+                "profession": "Infirmière",
+                "email": "sandrine-gaboriau@sfr.fr",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_001",
+                "nom": "POQUIN Sylvie",
+                "profession": "Infirmière",
+                "email": "poquin.sylvie17@orange.fr",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_001",
+                "nom": "CHEMIN Emilie",
+                "profession": "Infirmière",
+                "email": "chemin.emilie17@gmail.com",
+                "telephone": "682120123",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_001",
+                "nom": "BLAY Séverine",
+                "profession": "Infirmière",
+                "email": "severine.blay@gmail.com",
+                "telephone": "616456553",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_001",
+                "nom": "TETAUD Virginie",
+                "profession": "Infirmière",
+                "email": "ninitetaud@live.fr",
+                "telephone": "680562395",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_001",
+                "nom": "ARNAUD Marjorie",
+                "profession": "Infirmière",
+                "email": "marjoriearnaud764@gmail.com",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_001",
+                "nom": "ARNAUD Sarah",
+                "profession": "Infirmière",
+                "email": "saraharnaud@orange.fr",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_001",
+                "nom": "ESPARSA Florian",
+                "profession": "Médecin",
+                "email": "dr.esparsa@gmail.com",
+                "telephone": "620464238",
+                "statut": "Cogérant",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_001",
+                "nom": "LAFITTE Jean Yves",
+                "profession": "Médecin",
+                "email": "jylafitte@gmail.com",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_001",
+                "nom": "RAIMBAULT MALLET Marie",
+                "profession": "Médecin",
+                "email": "m.raimbault80@hotmail.fr",
+                "telephone": "762458652",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_001",
+                "nom": "BOURVEN Margot",
+                "profession": "Médecin",
+                "email": "margot.bourven@gmail.com",
+                "telephone": "649529100",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "pha_001",
+                "nom": "LALIS Agnès",
+                "profession": "Pharmacien",
+                "email": "alalis@totum.fr",
+                "telephone": "662279867",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "pha_001",
+                "nom": "FERRON Valérie",
+                "profession": "Pharmacien",
+                "email": "valerie.ferron@laposte.net",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "pha_001",
+                "nom": "GAYRIN Esther",
+                "profession": "Pharmacien",
+                "email": "esther.gayrin@outlook.com",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_001",
+                "nom": "GABORIAU Sandrine",
+                "profession": "Infirmière",
+                "email": "sandrine-gaboriau@sfr.fr",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_001",
+                "nom": "POQUIN Sylvie",
+                "profession": "Infirmière",
+                "email": "poquin.sylvie17@orange.fr",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_001",
+                "nom": "CHEMIN Emilie",
+                "profession": "Infirmière",
+                "email": "chemin.emilie17@gmail.com",
+                "telephone": "682120123",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_001",
+                "nom": "BLAY Séverine",
+                "profession": "Infirmière",
+                "email": "severine.blay@gmail.com",
+                "telephone": "616456553",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_001",
+                "nom": "TETAUD Virginie",
+                "profession": "Infirmière",
+                "email": "ninitetaud@live.fr",
+                "telephone": "680562395",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_001",
+                "nom": "ARNAUD Marjorie",
+                "profession": "Infirmière",
+                "email": "marjoriearnaud764@gmail.com",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_001",
+                "nom": "ARNAUD Sarah",
+                "profession": "Infirmière",
+                "email": "saraharnaud@orange.fr",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_003",
+                "nom": "ESPARSA Florian",
+                "profession": "Médecin",
+                "email": "dr.esparsa@gmail.com",
+                "telephone": "620464238",
+                "statut": "Cogérant",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_004",
+                "nom": "LAFITTE Jean Yves",
+                "profession": "Médecin",
+                "email": "jylafitte@gmail.com",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_005",
+                "nom": "RAIMBAULT MALLET Marie",
+                "profession": "Médecin",
+                "email": "m.raimbault80@hotmail.fr",
+                "telephone": "762458652",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_006",
+                "nom": "BOURVEN Margot",
+                "profession": "Médecin",
+                "email": "margot.bourven@gmail.com",
+                "telephone": "649529100",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "pha_002",
+                "nom": "LALIS Agnès",
+                "profession": "Pharmacien",
+                "email": "alalis@totum.fr",
+                "telephone": "662279867",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "pha_003",
+                "nom": "FERRON Valérie",
+                "profession": "Pharmacien",
+                "email": "valerie.ferron@laposte.net",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "pha_004",
+                "nom": "GAYRIN Esther",
+                "profession": "Pharmacien",
+                "email": "esther.gayrin@outlook.com",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_002",
+                "nom": "GABORIAU Sandrine",
+                "profession": "Infirmière",
+                "email": "sandrine-gaboriau@sfr.fr",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_003",
+                "nom": "POQUIN Sylvie",
+                "profession": "Infirmière",
+                "email": "poquin.sylvie17@orange.fr",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_004",
+                "nom": "CHEMIN Emilie",
+                "profession": "Infirmière",
+                "email": "chemin.emilie17@gmail.com",
+                "telephone": "682120123",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_005",
+                "nom": "BLAY Séverine",
+                "profession": "Infirmière",
+                "email": "severine.blay@gmail.com",
+                "telephone": "616456553",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_006",
+                "nom": "TETAUD Virginie",
+                "profession": "Infirmière",
+                "email": "ninitetaud@live.fr",
+                "telephone": "680562395",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_007",
+                "nom": "ESPARSA Florian",
+                "profession": "Médecin",
+                "email": "dr.esparsa@gmail.com",
+                "telephone": "620464238",
+                "statut": "Cogérant",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_008",
+                "nom": "LAFITTE Jean Yves",
+                "profession": "Médecin",
+                "email": "jylafitte@gmail.com",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_009",
+                "nom": "RAIMBAULT MALLET Marie",
+                "profession": "Médecin",
+                "email": "m.raimbault80@hotmail.fr",
+                "telephone": "762458652",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_010",
+                "nom": "BOURVEN Margot",
+                "profession": "Médecin",
+                "email": "margot.bourven@gmail.com",
+                "telephone": "649529100",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "pha_005",
+                "nom": "LALIS Agnès",
+                "profession": "Pharmacien",
+                "email": "alalis@totum.fr",
+                "telephone": "662279867",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "pha_006",
+                "nom": "FERRON Valérie",
+                "profession": "Pharmacien",
+                "email": "valerie.ferron@laposte.net",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "pha_007",
+                "nom": "GAYRIN Esther",
+                "profession": "Pharmacien",
+                "email": "esther.gayrin@outlook.com",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_007",
+                "nom": "GABORIAU Sandrine",
+                "profession": "Infirmière",
+                "email": "sandrine-gaboriau@sfr.fr",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_008",
+                "nom": "POQUIN Sylvie",
+                "profession": "Infirmière",
+                "email": "poquin.sylvie17@orange.fr",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_009",
+                "nom": "CHEMIN Emilie",
+                "profession": "Infirmière",
+                "email": "chemin.emilie17@gmail.com",
+                "telephone": "682120123",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_010",
+                "nom": "BLAY Séverine",
+                "profession": "Infirmière",
+                "email": "severine.blay@gmail.com",
+                "telephone": "616456553",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_011",
+                "nom": "TETAUD Virginie",
+                "profession": "Infirmière",
+                "email": "ninitetaud@live.fr",
+                "telephone": "680562395",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_012",
+                "nom": "ARNAUD Marjorie",
+                "profession": "Infirmière",
+                "email": "marjoriearnaud764@gmail.com",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_013",
+                "nom": "ARNAUD Sarah",
+                "profession": "Infirmière",
+                "email": "saraharnaud@orange.fr",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "inf_014",
+                "nom": "LELIEVRE Mélanie",
+                "profession": "Infirmière",
+                "email": "lelievremelaniee@gmail.com",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "kin_001",
+                "nom": "COLLADO Marta",
+                "profession": "Kinésithérapeute",
+                "email": "martaccollado@hotmail.com",
+                "telephone": "783134547",
+                "statut": "Cogérant",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "kin_002",
+                "nom": "CHAPELIER Ludovic",
+                "profession": "Kinésithérapeute",
+                "email": "ludovic.chapelier@yahoo.fr",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "kin_003",
+                "nom": "MOREL Emilie",
+                "profession": "Kinésithérapeute",
+                "email": "emi-toy@hotmail.fr",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "kin_004",
+                "nom": "SALIERNO Alexandra",
+                "profession": "Kinésithérapeute",
+                "email": "alexsalierno@hotmail.com",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "den_001",
+                "nom": "LOPEZ Julien",
+                "profession": "Dentiste",
+                "email": "julienlopez.dentiste@gmail.com",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "pod_001",
+                "nom": "EGRETEAU Emmanuelle",
+                "profession": "Pédicure podologue",
+                "email": "egreteau.podologue@gmail.com",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "pod_002",
+                "nom": "CHAUVEL Pascal",
+                "profession": "Pédicure podologue",
+                "email": "chavelpascal@icloud.com",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_011",
+                "nom": "CAMBERLEIN Bernard",
+                "profession": "Médecin",
+                "email": null,
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_012",
+                "nom": "ESPARSA Florian",
+                "profession": "Médecin",
+                "email": "dr.esparsa@gmail.com",
+                "telephone": "620464238",
+                "statut": "Cogérant",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_013",
+                "nom": "LAFITTE Jean Yves",
+                "profession": "Médecin",
+                "email": "jylafitte@gmail.com",
+                "telephone": null,
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_014",
+                "nom": "RAIMBAULT MALLET Marie",
+                "profession": "Médecin",
+                "email": "m.raimbault80@hotmail.fr",
+                "telephone": "762458652",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "med_015",
+                "nom": "BOURVEN Margot",
+                "profession": "Médecin",
+                "email": "margot.bourven@gmail.com",
+                "telephone": "649529100",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            },
+            {
+                "id": "pha_008",
+                "nom": "LALIS Agnès",
+                "profession": "Pharmacien",
+                "email": "alalis@totum.fr",
+                "telephone": "662279867",
+                "statut": "Associé",
+                "date_adhesion": "2020-01-01",
+                "actif": true
+            }
+        ],
+        "par_profession": {
+            "medecins": [
+                "med_001",
+                "med_002",
+                "med_001",
+                "med_001",
+                "med_001",
+                "med_001",
+                "med_001",
+                "med_001",
+                "med_001",
+                "med_001",
+                "med_003",
+                "med_004",
+                "med_005",
+                "med_006",
+                "med_007",
+                "med_008",
+                "med_009",
+                "med_010",
+                "med_011",
+                "med_012",
+                "med_013",
+                "med_014",
+                "med_015"
+            ],
+            "pharmaciens": [
+                "pha_001",
+                "pha_001",
+                "pha_001",
+                "pha_001",
+                "pha_001",
+                "pha_001",
+                "pha_002",
+                "pha_003",
+                "pha_004",
+                "pha_005",
+                "pha_006",
+                "pha_007",
+                "pha_008"
+            ],
+            "infirmiers": [
+                "inf_001",
+                "inf_001",
+                "inf_001",
+                "inf_001",
+                "inf_001",
+                "inf_001",
+                "inf_001",
+                "inf_001",
+                "inf_001",
+                "inf_001",
+                "inf_001",
+                "inf_001",
+                "inf_001",
+                "inf_001"
+            ],
+            "kinesitherapeutes": [
+                "kin_001",
+                "kin_002",
+                "kin_003",
+                "kin_004"
+            ],
+            "dentistes": [
+                "den_001"
+            ],
+            "podologues": [
+                "pod_001",
+                "pod_002"
+            ],
+            "infirmieres": [
+                "inf_002",
+                "inf_003",
+                "inf_004",
+                "inf_005",
+                "inf_006",
+                "inf_007",
+                "inf_008",
+                "inf_009",
+                "inf_010",
+                "inf_011",
+                "inf_012",
+                "inf_013",
+                "inf_014"
+            ]
+        }
+    },
+    "reunions": {
+        "historique": [],
+        "statistiques_participation": {}
+    },
+    "projets": {
+        "liste": [],
+        "statistiques_implication": {}
+    },
+    "patients": {
+        "actifs": [],
+        "archives": []
+    },
+    "consultations": {
+        "en_cours": [],
+        "historique": []
+    },
+    "statistiques": {
+        "nombre_patients_actifs": 0,
+        "consultations_par_mois": {},
+        "repartition_pathologies": {},
+        "temps_reunion": {
+            "total_heures": 0,
+            "par_associe": {
+                "med_001": 0,
+                "pha_001": 0,
+                "inf_001": 0,
+                "med_003": 0,
+                "med_004": 0,
+                "med_005": 0,
+                "med_006": 0,
+                "pha_002": 0,
+                "pha_003": 0,
+                "pha_004": 0,
+                "inf_002": 0,
+                "inf_003": 0,
+                "inf_004": 0,
+                "inf_005": 0,
+                "med_007": 0,
+                "med_008": 0,
+                "med_009": 0,
+                "med_010": 0,
+                "pha_005": 0,
+                "pha_006": 0,
+                "pha_007": 0,
+                "inf_007": 0,
+                "inf_008": 0,
+                "inf_009": 0,
+                "inf_010": 0,
+                "inf_011": 0,
+                "inf_012": 0,
+                "inf_013": 0,
+                "inf_014": 0,
+                "kin_001": 0,
+                "kin_002": 0,
+                "kin_003": 0,
+                "kin_004": 0,
+                "den_001": 0,
+                "pod_001": 0,
+                "pod_002": 0,
+                "med_012": 0,
+                "med_013": 0,
+                "med_014": 0,
+                "med_015": 0
+            },
+            "moyenne_mensuelle": {}
+        },
+        "implication_projets": {
+            "global": {},
+            "par_associe": {
+                "med_001": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "pha_001": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "inf_001": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "med_003": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "med_004": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "med_005": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "med_006": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "pha_002": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "pha_003": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "pha_004": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "inf_002": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "inf_003": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "inf_004": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "inf_005": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "med_007": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "med_008": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "med_009": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "med_010": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "pha_005": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "pha_006": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "pha_007": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "inf_007": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "inf_008": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "inf_009": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "inf_010": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "inf_011": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "inf_012": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "inf_013": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "inf_014": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "kin_001": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "kin_002": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "kin_003": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "kin_004": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "den_001": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "pod_001": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "pod_002": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "med_012": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "med_013": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "med_014": {
+                    "total_pondere": 0,
+                    "projets": {}
+                },
+                "med_015": {
+                    "total_pondere": 0,
+                    "projets": {}
+                }
+            },
+            "par_projet": {}
+        }
+    },
+    "parametres": {
+        "tarifs": {
+            "consultation_standard": 25,
+            "consultation_specialisee": 35,
+            "actes_specifiques": {}
+        },
+        "horaires_ouverture": {
+            "lundi": {
+                "debut": "08:00",
+                "fin": "19:00"
+            },
+            "mardi": {
+                "debut": "08:00",
+                "fin": "19:00"
+            },
+            "mercredi": {
+                "debut": "08:00",
+                "fin": "19:00"
+            },
+            "jeudi": {
+                "debut": "08:00",
+                "fin": "19:00"
+            },
+            "vendredi": {
+                "debut": "08:00",
+                "fin": "19:00"
+            }
+        },
+        "poids_projets": {
+            "standard": 1,
+            "prioritaire": 2,
+            "strategique": 3
+        }
+    }
+}

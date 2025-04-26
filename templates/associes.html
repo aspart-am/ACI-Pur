@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Associés - MSP Gestion</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Ajout de Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <h1>MSP Gestion</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="revenus.html"><i class="fas fa-money-bill-wave"></i> Revenus ACI</a></li>
+                    <li class="active"><a href="associes.html"><i class="fas fa-user-md"></i> Associés</a></li>
+                    <li><a href="charges.html"><i class="fas fa-file-invoice-dollar"></i> Charges</a></li>
+                    <li><a href="rcpmeeting.html"><i class="fas fa-users"></i> Réunions RCP</a></li>
+                    <li><a href="projets.html"><i class="fas fa-tasks"></i> Projets & Missions</a></li>
+                    <li><a href="repartition.html"><i class="fas fa-chart-pie"></i> Répartition</a></li>
+                    <li><a href="parametres.html"><i class="fas fa-cog"></i> Paramètres</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main-content">
+            <header>
+                <div class="header-content">
+                    <h1>Gestion des Associés</h1>
+                    <div class="user-info">
+                        <span>Administrateur</span>
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+            </header>
+
+            <div class="actions-bar">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#modal-add-associe">
+                    <i class="fas fa-plus"></i> Ajouter un associé
+                </button>
+                <div class="filter-group">
+                    <label for="filter-profession">Filtrer par profession:</label>
+                    <select id="filter-profession" class="form-control">
+                        <option value="">Toutes les professions</option>
+                        <!-- Les options seront générées dynamiquement -->
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Profession</th>
+                            <th>Email</th>
+                            <th>Téléphone</th>
+                            <th>Statut</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="liste-associes">
+                        <!-- Les associés seront générés dynamiquement -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Ajouter Associé -->
+    <div class="modal" id="modal-add-associe">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Ajouter un associé</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="form-add-associe">
+                    <div class="form-group">
+                        <label for="add-associe-nom">Nom complet</label>
+                        <input type="text" id="add-associe-nom" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="add-associe-profession">Profession</label>
+                        <select id="add-associe-profession" class="form-control" required>
+                            <option value="">Sélectionner une profession</option>
+                            <option value="Médecin">Médecin</option>
+                            <option value="Infirmière">Infirmière</option>
+                            <option value="Kinésithérapeute">Kinésithérapeute</option>
+                            <option value="Pharmacien">Pharmacien</option>
+                            <option value="Dentiste">Dentiste</option>
+                            <option value="Pédicure podologue">Pédicure podologue</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="add-associe-email">Email</label>
+                        <input type="email" id="add-associe-email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="add-associe-telephone">Téléphone</label>
+                        <input type="tel" id="add-associe-telephone" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="add-associe-statut">Statut</label>
+                        <select id="add-associe-statut" class="form-control">
+                            <option value="Associé">Associé</option>
+                            <option value="Cogérant">Cogérant</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="btn-save-add-associe">Ajouter</button>
+                <button class="btn btn-danger modal-close">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Éditer Associé -->
+    <div class="modal" id="modal-edit-associe">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Modifier un associé</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="form-edit-associe">
+                    <input type="hidden" id="edit-associe-id">
+                    <div class="form-group">
+                        <label for="edit-associe-nom">Nom complet</label>
+                        <input type="text" id="edit-associe-nom" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-associe-profession">Profession</label>
+                        <select id="edit-associe-profession" class="form-control" required>
+                            <option value="">Sélectionner une profession</option>
+                            <option value="Médecin">Médecin</option>
+                            <option value="Infirmière">Infirmière</option>
+                            <option value="Kinésithérapeute">Kinésithérapeute</option>
+                            <option value="Pharmacien">Pharmacien</option>
+                            <option value="Dentiste">Dentiste</option>
+                            <option value="Pédicure podologue">Pédicure podologue</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-associe-email">Email</label>
+                        <input type="email" id="edit-associe-email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-associe-telephone">Téléphone</label>
+                        <input type="tel" id="edit-associe-telephone" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-associe-statut">Statut</label>
+                        <select id="edit-associe-statut" class="form-control">
+                            <option value="Associé">Associé</option>
+                            <option value="Cogérant">Cogérant</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="btn-save-edit-associe">Enregistrer</button>
+                <button class="btn btn-danger modal-close">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/services/professionnels.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        // Fonction pour initialiser le tableau des associés
+        function initTableAssocies() {
+            const tableBody = document.getElementById('liste-associes');
+            tableBody.innerHTML = '';
+            
+            // Récupérer les données depuis le localStorage
+            const data = getData('professionnels') || [];
+            
+            if (data.length === 0) {
+                const row = document.createElement('tr');
+                const td = document.createElement('td');
+                td.colSpan = 6;
+                td.textContent = 'Aucun associé enregistré';
+                td.style.textAlign = 'center';
+                row.appendChild(td);
+                tableBody.appendChild(row);
+                return;
+            }
+            
+            data.forEach((pro, index) => {
+                const row = document.createElement('tr');
+                
+                // Colonne nom
+                const tdNom = document.createElement('td');
+                tdNom.textContent = pro.Nom;
+                row.appendChild(tdNom);
+                
+                // Colonne profession
+                const tdProfession = document.createElement('td');
+                tdProfession.textContent = pro.Profession || '-';
+                row.appendChild(tdProfession);
+                
+                // Colonne email
+                const tdEmail = document.createElement('td');
+                tdEmail.textContent = pro.Email || '-';
+                row.appendChild(tdEmail);
+                
+                // Colonne téléphone
+                const tdTel = document.createElement('td');
+                tdTel.textContent = pro.Téléphone || '-';
+                row.appendChild(tdTel);
+                
+                // Colonne statut
+                const tdStatut = document.createElement('td');
+                const badge = document.createElement('span');
+                badge.className = 'badge ' + (pro.Statut === 'Cogérant' ? 'badge-primary' : 'badge-info');
+                badge.textContent = pro.Statut || 'Associé';
+                tdStatut.appendChild(badge);
+                row.appendChild(tdStatut);
+                
+                // Colonne actions
+                const tdActions = document.createElement('td');
+                tdActions.className = 'action-icons';
+                
+                // Bouton éditer
+                const editBtn = document.createElement('i');
+                editBtn.className = 'fas fa-edit';
+                editBtn.setAttribute('data-toggle', 'modal');
+                editBtn.setAttribute('data-target', '#modal-edit-associe');
+                editBtn.setAttribute('data-id', index);
+                editBtn.title = 'Modifier';
+                editBtn.addEventListener('click', function() {
+                    document.getElementById('edit-associe-id').value = index;
+                    document.getElementById('edit-associe-nom').value = pro.Nom;
+                    document.getElementById('edit-associe-profession').value = pro.Profession;
+                    document.getElementById('edit-associe-email').value = pro.Email || '';
+                    document.getElementById('edit-associe-telephone').value = pro.Téléphone || '';
+                    document.getElementById('edit-associe-statut').value = pro.Statut || 'Associé';
+                    document.getElementById('modal-edit-associe').classList.add('show');
+                });
+                tdActions.appendChild(editBtn);
+                
+                // Bouton supprimer
+                const deleteBtn = document.createElement('i');
+                deleteBtn.className = 'fas fa-trash-alt';
+                deleteBtn.setAttribute('data-id', index);
+                deleteBtn.title = 'Supprimer';
+                deleteBtn.addEventListener('click', function() {
+                    if (confirm('Voulez-vous vraiment supprimer cet associé ?')) {
+                        data.splice(index, 1);
+                        saveData('professionnels', data);
+                        initTableAssocies();
+                        showAlert('Associé supprimé avec succès', 'success');
+                    }
+                });
+                tdActions.appendChild(deleteBtn);
+                
+                row.appendChild(tdActions);
+                
+                // Ajoute la ligne au tableau
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Fonction pour ajouter un associé
+        function ajouterAssocie(nouvelAssocie) {
+            const data = getData('professionnels') || [];
+            data.push(nouvelAssocie);
+            saveData('professionnels', data);
+            initTableAssocies();
+        }
+
+        // Fonction pour mettre à jour un associé
+        function updateAssocie(index, associeModifie) {
+            const data = getData('professionnels') || [];
+            if (index >= 0 && index < data.length) {
+                data[index] = associeModifie;
+                saveData('professionnels', data);
+                initTableAssocies();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialiser le tableau des associés
+            initTableAssocies();
+
+            // Gestion du filtre par profession
+            const filterProfession = document.getElementById('filter-profession');
+            const data = getData('professionnels') || [];
+            const professions = [...new Set(data.map(p => p.Profession))];
+            professions.forEach(profession => {
+                if (profession) {
+                    const option = document.createElement('option');
+                    option.value = profession;
+                    option.textContent = profession;
+                    filterProfession.appendChild(option);
+                }
+            });
+
+            // Ajouter un nouvel associé
+            document.getElementById('btn-save-add-associe').addEventListener('click', function() {
+                const nom = document.getElementById('add-associe-nom').value;
+                const profession = document.getElementById('add-associe-profession').value;
+                const email = document.getElementById('add-associe-email').value;
+                const telephone = document.getElementById('add-associe-telephone').value;
+                const statut = document.getElementById('add-associe-statut').value;
+                
+                if (!nom || !profession) {
+                    showAlert('Veuillez remplir tous les champs obligatoires', 'danger');
+                    return;
+                }
+                
+                const nouvelAssocie = {
+                    Nom: nom,
+                    Profession: profession,
+                    Email: email,
+                    Téléphone: telephone,
+                    Statut: statut
+                };
+                
+                // Ajouter l'associé
+                ajouterAssocie(nouvelAssocie);
+                
+                // Fermer le modal et réinitialiser le formulaire
+                document.getElementById('modal-add-associe').classList.remove('show');
+                document.getElementById('form-add-associe').reset();
+                
+                showAlert('Associé ajouté avec succès', 'success');
+            });
+            
+            // Modifier un associé
+            document.getElementById('btn-save-edit-associe').addEventListener('click', function() {
+                const id = document.getElementById('edit-associe-id').value;
+                const nom = document.getElementById('edit-associe-nom').value;
+                const profession = document.getElementById('edit-associe-profession').value;
+                const email = document.getElementById('edit-associe-email').value;
+                const telephone = document.getElementById('edit-associe-telephone').value;
+                const statut = document.getElementById('edit-associe-statut').value;
+                
+                if (!nom || !profession) {
+                    showAlert('Veuillez remplir tous les champs obligatoires', 'danger');
+                    return;
+                }
+                
+                const associeModifie = {
+                    Nom: nom,
+                    Profession: profession,
+                    Email: email,
+                    Téléphone: telephone,
+                    Statut: statut
+                };
+                
+                // Modifier l'associé
+                updateAssocie(parseInt(id), associeModifie);
+                
+                // Fermer le modal
+                document.getElementById('modal-edit-associe').classList.remove('show');
+                
+                showAlert('Associé modifié avec succès', 'success');
+            });
+            
+            // Filtrer les associés par profession
+            filterProfession.addEventListener('change', function() {
+                const profession = this.value;
+                const data = getData('professionnels') || [];
+                const filteredData = profession ? data.filter(p => p.Profession === profession) : data;
+                
+                // Mettre à jour le tableau
+                const tableBody = document.getElementById('liste-associes');
+                tableBody.innerHTML = '';
+                
+                if (filteredData.length === 0) {
+                    const row = document.createElement('tr');
+                    const td = document.createElement('td');
+                    td.colSpan = 6;
+                    td.textContent = 'Aucun associé trouvé';
+                    td.style.textAlign = 'center';
+                    row.appendChild(td);
+                    tableBody.appendChild(row);
+                    return;
+                }
+                
+                filteredData.forEach((pro, index) => {
+                    // Le même code pour créer des lignes de tableau que dans initTableAssocies
+                    const row = document.createElement('tr');
+                    
+                    // Colonne nom
+                    const tdNom = document.createElement('td');
+                    tdNom.textContent = pro.Nom;
+                    row.appendChild(tdNom);
+                    
+                    // Colonne profession
+                    const tdProfession = document.createElement('td');
+                    tdProfession.textContent = pro.Profession || '-';
+                    row.appendChild(tdProfession);
+                    
+                    // Colonne email
+                    const tdEmail = document.createElement('td');
+                    tdEmail.textContent = pro.Email || '-';
+                    row.appendChild(tdEmail);
+                    
+                    // Colonne téléphone
+                    const tdTel = document.createElement('td');
+                    tdTel.textContent = pro.Téléphone || '-';
+                    row.appendChild(tdTel);
+                    
+                    // Colonne statut
+                    const tdStatut = document.createElement('td');
+                    const badge = document.createElement('span');
+                    badge.className = 'badge ' + (pro.Statut === 'Cogérant' ? 'badge-primary' : 'badge-info');
+                    badge.textContent = pro.Statut || 'Associé';
+                    tdStatut.appendChild(badge);
+                    row.appendChild(tdStatut);
+                    
+                    // Colonne actions
+                    const tdActions = document.createElement('td');
+                    tdActions.className = 'action-icons';
+                    
+                    // Bouton éditer
+                    const editBtn = document.createElement('i');
+                    editBtn.className = 'fas fa-edit';
+                    editBtn.setAttribute('data-toggle', 'modal');
+                    editBtn.setAttribute('data-target', '#modal-edit-associe');
+                    editBtn.setAttribute('data-id', index);
+                    editBtn.title = 'Modifier';
+                    editBtn.addEventListener('click', function() {
+                        document.getElementById('edit-associe-id').value = index;
+                        document.getElementById('edit-associe-nom').value = pro.Nom;
+                        document.getElementById('edit-associe-profession').value = pro.Profession;
+                        document.getElementById('edit-associe-email').value = pro.Email || '';
+                        document.getElementById('edit-associe-telephone').value = pro.Téléphone || '';
+                        document.getElementById('edit-associe-statut').value = pro.Statut || 'Associé';
+                        document.getElementById('modal-edit-associe').classList.add('show');
+                    });
+                    tdActions.appendChild(editBtn);
+                    
+                    // Bouton supprimer
+                    const deleteBtn = document.createElement('i');
+                    deleteBtn.className = 'fas fa-trash-alt';
+                    deleteBtn.setAttribute('data-id', index);
+                    deleteBtn.title = 'Supprimer';
+                    deleteBtn.addEventListener('click', function() {
+                        if (confirm('Voulez-vous vraiment supprimer cet associé ?')) {
+                            data.splice(index, 1);
+                            saveData('professionnels', data);
+                            initTableAssocies();
+                            showAlert('Associé supprimé avec succès', 'success');
+                        }
+                    });
+                    tdActions.appendChild(deleteBtn);
+                    
+                    row.appendChild(tdActions);
+                    
+                    // Ajoute la ligne au tableau
+                    tableBody.appendChild(row);
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

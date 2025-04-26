@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Charges - MSP Gestion</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Ajout de Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <h1>MSP Gestion</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="revenus.html"><i class="fas fa-money-bill-wave"></i> Revenus ACI</a></li>
+                    <li><a href="associes.html"><i class="fas fa-user-md"></i> Associés</a></li>
+                    <li class="active"><a href="charges.html"><i class="fas fa-file-invoice-dollar"></i> Charges</a></li>
+                    <li><a href="rcpmeeting.html"><i class="fas fa-users"></i> Réunions RCP</a></li>
+                    <li><a href="projets.html"><i class="fas fa-tasks"></i> Projets & Missions</a></li>
+                    <li><a href="repartition.html"><i class="fas fa-chart-pie"></i> Répartition</a></li>
+                    <li><a href="parametres.html"><i class="fas fa-cog"></i> Paramètres</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main-content">
+            <header>
+                <div class="header-content">
+                    <h1>Gestion des Charges</h1>
+                    <div class="user-info">
+                        <span>Administrateur</span>
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+            </header>
+
+            <div class="quick-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Charges</h3>
+                        <p class="total-amount" id="total-charges">0 €</p>
+                        <p class="year-label">Année 2023</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Charges Fixes</h3>
+                        <p class="total-amount" id="charges-fixes">0 €</p>
+                        <p class="year-label">Année 2023</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Charges Variables</h3>
+                        <p class="total-amount" id="charges-variables">0 €</p>
+                        <p class="year-label">Année 2023</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions-bar">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#modal-add-charge">
+                    <i class="fas fa-plus"></i> Ajouter une charge
+                </button>
+                <div class="filter-group">
+                    <label for="filter-annee">Filtrer par année:</label>
+                    <select id="filter-annee" class="form-control">
+                        <option value="2026">2026</option>
+                        <option value="2025" selected>2025</option>
+                        <option value="2024">2024</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filter-categorie">Filtrer par catégorie:</label>
+                    <select id="filter-categorie" class="form-control">
+                        <option value="">Toutes les catégories</option>
+                        <option value="Loyer">Loyer</option>
+                        <option value="Électricité">Électricité</option>
+                        <option value="Eau">Eau</option>
+                        <option value="Internet">Internet</option>
+                        <option value="Assurance">Assurance</option>
+                        <option value="Fournitures">Fournitures</option>
+                        <option value="Matériel">Matériel</option>
+                        <option value="Entretien">Entretien</option>
+                        <option value="Autre">Autre</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Catégorie</th>
+                            <th>Type</th>
+                            <th>Montant</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="liste-charges">
+                        <!-- Les charges seront générées dynamiquement -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Graphique de répartition des charges -->
+            <div class="chart-container mt-20">
+                <h3>Répartition des charges par catégorie</h3>
+                <div class="chart" id="charges-chart">
+                    <!-- Le graphique sera généré par JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Ajouter Charge -->
+    <div class="modal" id="modal-add-charge">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Ajouter une charge</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="form-add-charge">
+                    <div class="form-group">
+                        <label for="add-charge-date">Date</label>
+                        <input type="date" id="add-charge-date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="add-charge-description">Description</label>
+                        <input type="text" id="add-charge-description" class="form-control" required placeholder="Ex: Loyer du mois de janvier">
+                    </div>
+                    <div class="form-group">
+                        <label for="add-charge-categorie">Catégorie</label>
+                        <select id="add-charge-categorie" class="form-control" required>
+                            <option value="">Sélectionner une catégorie</option>
+                            <option value="Loyer">Loyer</option>
+                            <option value="Électricité">Électricité</option>
+                            <option value="Eau">Eau</option>
+                            <option value="Internet">Internet</option>
+                            <option value="Assurance">Assurance</option>
+                            <option value="Fournitures">Fournitures</option>
+                            <option value="Matériel">Matériel</option>
+                            <option value="Entretien">Entretien</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="add-charge-type">Type de charge</label>
+                        <select id="add-charge-type" class="form-control" required>
+                            <option value="Fixe">Charge fixe</option>
+                            <option value="Variable">Charge variable</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="add-charge-montant">Montant (€)</label>
+                        <input type="number" id="add-charge-montant" class="form-control" step="0.01" min="0" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="btn-save-add-charge">Ajouter</button>
+                <button class="btn btn-danger modal-close">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Éditer Charge -->
+    <div class="modal" id="modal-edit-charge">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Modifier une charge</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="form-edit-charge">
+                    <input type="hidden" id="edit-charge-id">
+                    <div class="form-group">
+                        <label for="edit-charge-date">Date</label>
+                        <input type="date" id="edit-charge-date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-charge-description">Description</label>
+                        <input type="text" id="edit-charge-description" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-charge-categorie">Catégorie</label>
+                        <select id="edit-charge-categorie" class="form-control" required>
+                            <option value="">Sélectionner une catégorie</option>
+                            <option value="Loyer">Loyer</option>
+                            <option value="Électricité">Électricité</option>
+                            <option value="Eau">Eau</option>
+                            <option value="Internet">Internet</option>
+                            <option value="Assurance">Assurance</option>
+                            <option value="Fournitures">Fournitures</option>
+                            <option value="Matériel">Matériel</option>
+                            <option value="Entretien">Entretien</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-charge-type">Type de charge</label>
+                        <select id="edit-charge-type" class="form-control" required>
+                            <option value="Fixe">Charge fixe</option>
+                            <option value="Variable">Charge variable</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-charge-montant">Montant (€)</label>
+                        <input type="number" id="edit-charge-montant" class="form-control" step="0.01" min="0" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="btn-save-edit-charge">Enregistrer</button>
+                <button class="btn btn-danger modal-close">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        // Tableau pour stocker les charges
+        let charges = getData('charges') || [];
+        
+        // Initialisation au chargement de la page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialisation de la date pour le formulaire d'ajout
+            document.getElementById('add-charge-date').valueAsDate = new Date();
+            
+            // Mise à jour des statistiques
+            updateStats();
+            
+            // Initialisation du tableau des charges
+            initTableCharges();
+            
+            // Initialisation du graphique
+            initChargesChart();
+            
+            // Gestion des filtres
+            document.getElementById('filter-annee').addEventListener('change', function() {
+                initTableCharges();
+                updateStats();
+                initChargesChart();
+            });
+            
+            document.getElementById('filter-categorie').addEventListener('change', function() {
+                initTableCharges();
+            });
+            
+            // Ajouter une nouvelle charge
+            document.getElementById('btn-save-add-charge').addEventListener('click', function() {
+                const date = document.getElementById('add-charge-date').value;
+                const description = document.getElementById('add-charge-description').value;
+                const categorie = document.getElementById('add-charge-categorie').value;
+                const type = document.getElementById('add-charge-type').value;
+                const montant = parseFloat(document.getElementById('add-charge-montant').value);
+                
+                if (!date || !description || !categorie || !type || isNaN(montant)) {
+                    showAlert('Veuillez remplir tous les champs correctement', 'danger');
+                    return;
+                }
+                
+                const nouvelleCharge = {
+                    date: date,
+                    description: description,
+                    categorie: categorie,
+                    type: type,
+                    montant: montant
+                };
+                
+                // Ajouter la charge
+                charges.push(nouvelleCharge);
+                saveData('charges', charges);
+                
+                // Fermer le modal et réinitialiser le formulaire
+                document.getElementById('modal-add-charge').classList.remove('show');
+                document.getElementById('form-add-charge').reset();
+                document.getElementById('add-charge-date').valueAsDate = new Date();
+                
+                // Mise à jour des éléments
+                initTableCharges();
+                updateStats();
+                initChargesChart();
+                
+                showAlert('Charge ajoutée avec succès', 'success');
+            });
+            
+            // Modifier une charge
+            document.getElementById('btn-save-edit-charge').addEventListener('click', function() {
+                const id = parseInt(document.getElementById('edit-charge-id').value);
+                const date = document.getElementById('edit-charge-date').value;
+                const description = document.getElementById('edit-charge-description').value;
+                const categorie = document.getElementById('edit-charge-categorie').value;
+                const type = document.getElementById('edit-charge-type').value;
+                const montant = parseFloat(document.getElementById('edit-charge-montant').value);
+                
+                if (!date || !description || !categorie || !type || isNaN(montant)) {
+                    showAlert('Veuillez remplir tous les champs correctement', 'danger');
+                    return;
+                }
+                
+                // Modifier la charge
+                if (id >= 0 && id < charges.length) {
+                    charges[id] = {
+                        date: date,
+                        description: description,
+                        categorie: categorie,
+                        type: type,
+                        montant: montant
+                    };
+                    saveData('charges', charges);
+                    
+                    // Fermer le modal
+                    document.getElementById('modal-edit-charge').classList.remove('show');
+                    
+                    // Mise à jour des éléments
+                    initTableCharges();
+                    updateStats();
+                    initChargesChart();
+                    
+                    showAlert('Charge modifiée avec succès', 'success');
+                }
+            });
+        });
+        
+        // Fonction pour initialiser le tableau des charges
+        function initTableCharges() {
+            const tableBody = document.getElementById('liste-charges');
+            const anneeSelectionnee = document.getElementById('filter-annee').value;
+            const categorieSelectionnee = document.getElementById('filter-categorie').value;
+            
+            // Vide le tableau
+            tableBody.innerHTML = '';
+            
+            // Filtre les charges par année et catégorie
+            let chargesFiltrees = charges.filter(charge => {
+                const annee = new Date(charge.date).getFullYear();
+                return annee.toString() === anneeSelectionnee;
+            });
+            
+            if (categorieSelectionnee) {
+                chargesFiltrees = chargesFiltrees.filter(charge => charge.categorie === categorieSelectionnee);
+            }
+            
+            // Trie les charges par date (du plus récent au plus ancien)
+            chargesFiltrees.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            // Ajoute chaque charge au tableau
+            chargesFiltrees.forEach((charge, index) => {
+                const row = document.createElement('tr');
+                
+                // Colonne date
+                const tdDate = document.createElement('td');
+                tdDate.textContent = formatDate(charge.date);
+                row.appendChild(tdDate);
+                
+                // Colonne description
+                const tdDesc = document.createElement('td');
+                tdDesc.textContent = charge.description;
+                row.appendChild(tdDesc);
+                
+                // Colonne catégorie
+                const tdCategorie = document.createElement('td');
+                tdCategorie.textContent = charge.categorie;
+                row.appendChild(tdCategorie);
+                
+                // Colonne type
+                const tdType = document.createElement('td');
+                const badge = document.createElement('span');
+                badge.className = 'badge ' + (charge.type === 'Fixe' ? 'badge-primary' : 'badge-warning');
+                badge.textContent = charge.type;
+                tdType.appendChild(badge);
+                row.appendChild(tdType);
+                
+                // Colonne montant
+                const tdMontant = document.createElement('td');
+                tdMontant.textContent = formatMontant(charge.montant);
+                row.appendChild(tdMontant);
+                
+                // Colonne actions
+                const tdActions = document.createElement('td');
+                tdActions.className = 'action-icons';
+                
+                // Bouton éditer
+                const editBtn = document.createElement('i');
+                editBtn.className = 'fas fa-edit';
+                editBtn.setAttribute('data-toggle', 'modal');
+                editBtn.setAttribute('data-target', '#modal-edit-charge');
+                editBtn.setAttribute('data-id', charges.indexOf(charge));
+                editBtn.title = 'Modifier';
+                editBtn.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    const charge = charges[id];
+                    
+                    // Remplit le formulaire d'édition
+                    document.getElementById('edit-charge-id').value = id;
+                    document.getElementById('edit-charge-date').value = charge.date;
+                    document.getElementById('edit-charge-description').value = charge.description;
+                    document.getElementById('edit-charge-categorie').value = charge.categorie;
+                    document.getElementById('edit-charge-type').value = charge.type;
+                    document.getElementById('edit-charge-montant').value = charge.montant;
+                });
+                tdActions.appendChild(editBtn);
+                
+                // Bouton supprimer
+                const deleteBtn = document.createElement('i');
+                deleteBtn.className = 'fas fa-trash-alt';
+                deleteBtn.setAttribute('data-id', charges.indexOf(charge));
+                deleteBtn.title = 'Supprimer';
+                deleteBtn.addEventListener('click', function() {
+                    const id = parseInt(this.getAttribute('data-id'));
+                    confirmAction(`Voulez-vous vraiment supprimer cette charge ?`, function() {
+                        if (id >= 0 && id < charges.length) {
+                            charges.splice(id, 1);
+                            saveData('charges', charges);
+                            
+                            // Mise à jour des éléments
+                            initTableCharges();
+                            updateStats();
+                            initChargesChart();
+                            
+                            showAlert('Charge supprimée avec succès', 'success');
+                        }
+                    });
+                });
+                tdActions.appendChild(deleteBtn);
+                
+                row.appendChild(tdActions);
+                
+                // Ajoute la ligne au tableau
+                tableBody.appendChild(row);
+            });
+            
+            // Si aucune charge, affiche une ligne "Aucune charge"
+            if (chargesFiltrees.length === 0) {
+                const row = document.createElement('tr');
+                const td = document.createElement('td');
+                td.colSpan = 6;
+                td.textContent = categorieSelectionnee 
+                    ? `Aucune charge de type "${categorieSelectionnee}" pour cette année` 
+                    : 'Aucune charge pour cette année';
+                td.style.textAlign = 'center';
+                row.appendChild(td);
+                tableBody.appendChild(row);
+            }
+        }
+        
+        // Fonction pour mettre à jour les statistiques
+        function updateStats() {
+            const anneeSelectionnee = document.getElementById('filter-annee').value;
+            
+            // Filtre les charges par année
+            const chargesFiltrees = charges.filter(charge => {
+                const annee = new Date(charge.date).getFullYear();
+                return annee.toString() === anneeSelectionnee;
+            });
+            
+            // Calcule le total des charges
+            const totalCharges = chargesFiltrees.reduce((total, charge) => total + charge.montant, 0);
+            
+            // Calcule le total des charges fixes
+            const chargesFixes = chargesFiltrees
+                .filter(charge => charge.type === 'Fixe')
+                .reduce((total, charge) => total + charge.montant, 0);
+                
+            // Calcule le total des charges variables
+            const chargesVariables = chargesFiltrees
+                .filter(charge => charge.type === 'Variable')
+                .reduce((total, charge) => total + charge.montant, 0);
+            
+            // Mise à jour des éléments HTML
+            document.getElementById('total-charges').textContent = formatMontant(totalCharges);
+            document.getElementById('charges-fixes').textContent = formatMontant(chargesFixes);
+            document.getElementById('charges-variables').textContent = formatMontant(chargesVariables);
+            
+            // Mise à jour de l'année dans les labels
+            document.querySelectorAll('.year-label').forEach(label => {
+                if (label.textContent.includes('Année')) {
+                    label.textContent = `Année ${anneeSelectionnee}`;
+                }
+            });
+        }
+        
+        // Fonction pour initialiser le graphique des charges
+        function initChargesChart() {
+            const ctx = document.getElementById('charges-chart');
+            const anneeSelectionnee = document.getElementById('filter-annee').value;
+            
+            // Si un graphique existe déjà, le détruire
+            if (window.chargesChart) {
+                window.chargesChart.destroy();
+            }
+            
+            // Filtre les charges par année
+            const chargesFiltrees = charges.filter(charge => {
+                const annee = new Date(charge.date).getFullYear();
+                return annee.toString() === anneeSelectionnee;
+            });
+            
+            // Si aucune charge, affiche un message
+            if (chargesFiltrees.length === 0) {
+                ctx.innerHTML = '<p class="no-data">Aucune donnée disponible pour cette année</p>';
+                return;
+            }
+            
+            // Organise les charges par catégorie
+            const chargesParCategorie = {};
+            
+            chargesFiltrees.forEach(charge => {
+                if (!chargesParCategorie[charge.categorie]) {
+                    chargesParCategorie[charge.categorie] = 0;
+                }
+                chargesParCategorie[charge.categorie] += charge.montant;
+            });
+            
+            // Prépare les données pour le graphique
+            const labels = Object.keys(chargesParCategorie);
+            const data = Object.values(chargesParCategorie);
+            const colors = generateColors(labels.length);
+            
+            // Crée le graphique
+            window.chargesChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: colors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = Math.round((value / total) * 100);
+                                    return `${label}: ${formatMontant(value)} (${percentage}%)`;
+                                }
+                            }
+                        },
+                        legend: {
+                            position: 'right',
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Fonction pour générer des couleurs aléatoires
+        function generateColors(count) {
+            const predefinedColors = [
+                '#3498db', '#2ecc71', '#e74c3c', '#f39c12', '#9b59b6',
+                '#1abc9c', '#d35400', '#34495e', '#16a085', '#c0392b'
+            ];
+            
+            // Si nous avons assez de couleurs prédéfinies, utilise-les
+            if (count <= predefinedColors.length) {
+                return predefinedColors.slice(0, count);
+            }
+            
+            // Sinon, génère des couleurs aléatoires
+            const colors = [...predefinedColors];
+            for (let i = predefinedColors.length; i < count; i++) {
+                const r = Math.floor(Math.random() * 200);
+                const g = Math.floor(Math.random() * 200);
+                const b = Math.floor(Math.random() * 200);
+                colors.push(`rgb(${r}, ${g}, ${b})`);
+            }
+            return colors;
+        }
+    </script>
+</body>
+</html> 

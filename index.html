@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSP Gestion - Maison de Santé Pluriprofessionnelle</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Ajout de Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <h1>MSP Gestion</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active"><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="templates/revenus.html"><i class="fas fa-money-bill-wave"></i> Revenus ACI</a></li>
+                    <li><a href="templates/associes.html"><i class="fas fa-user-md"></i> Associés</a></li>
+                    <li><a href="templates/charges.html"><i class="fas fa-file-invoice-dollar"></i> Charges</a></li>
+                    <li><a href="templates/rcpmeeting.html"><i class="fas fa-users"></i> Réunions RCP</a></li>
+                    <li><a href="templates/projets.html"><i class="fas fa-tasks"></i> Projets & Missions</a></li>
+                    <li><a href="templates/repartition.html"><i class="fas fa-chart-pie"></i> Répartition</a></li>
+                    <li><a href="templates/parametres.html"><i class="fas fa-cog"></i> Paramètres</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main-content">
+            <header>
+                <div class="header-content">
+                    <h1>Tableau de bord</h1>
+                    <div class="user-info">
+                        <span>Administrateur</span>
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+            </header>
+            <div class="dashboard">
+                <div class="welcome-section">
+                    <h2>Bienvenue sur MSP Gestion</h2>
+                    <p>Application de gestion pour votre Maison de Santé Pluriprofessionnelle</p>
+                </div>
+                <div class="quick-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Revenus ACI</h3>
+                            <p class="total-amount" id="total-revenus">0 €</p>
+                            <p class="year-label">Année <span id="annee-revenus">2023</span></p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Associés</h3>
+                            <p class="total-amount" id="total-associes">0</p>
+                            <p class="year-label">Professionnels actifs</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Charges</h3>
+                            <p class="total-amount" id="total-charges">0 €</p>
+                            <p class="year-label">Année <span id="annee-charges">2023</span></p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Réunions RCP</h3>
+                            <p class="total-amount" id="total-reunions">0</p>
+                            <p class="year-label">Année <span id="annee-reunions">2023</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-content">
+                    <div class="chart-container">
+                        <h3>Répartition des revenus</h3>
+                        <div class="chart" id="repartition-chart"></div>
+                    </div>
+                    <div class="recent-activities">
+                        <h3>Paramètres de répartition actuels</h3>
+                        <div class="parametres-grid">
+                            <div class="parametre-card">
+                                <div class="parametre-title">Part fixe</div>
+                                <div class="parametre-subtitle">Du revenu net</div>
+                                <div class="parametre-value" id="param-part-fixe">50%</div>
+                            </div>
+                            <div class="parametre-card">
+                                <div class="parametre-title">Facteur cogérant</div>
+                                <div class="parametre-subtitle">Associés gérants</div>
+                                <div class="parametre-value" id="param-facteur-cogerant">×1.7</div>
+                            </div>
+                            <div class="parametre-card">
+                                <div class="parametre-title">Part RCP</div>
+                                <div class="parametre-subtitle">Du revenu net</div>
+                                <div class="parametre-value" id="param-part-rcp">25%</div>
+                            </div>
+                            <div class="parametre-card">
+                                <div class="parametre-title">Part Projets</div>
+                                <div class="parametre-subtitle">Du revenu net</div>
+                                <div class="parametre-value" id="param-part-projets">25%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Configuration -->
+    <script type="module" src="js/config/config.js"></script>
+    
+    <!-- Utilitaires -->
+    <script type="module" src="js/utils/dateUtils.js"></script>
+    <script type="module" src="js/utils/validationUtils.js"></script>
+    
+    <!-- Services -->
+    <script type="module" src="js/services/DataService.js"></script>
+    <script type="module" src="js/services/AssocieService.js"></script>
+    
+    <!-- Migration -->
+    <script type="module" src="js/migration/migrationService.js"></script>
+    <script type="module" src="js/migration/index.js"></script>
+    
+    <!-- Application -->
+    <script type="module" src="js/main.js"></script>
+    <script>
+        // Fonction pour formater les montants
+        function formatMontant(montant) {
+            return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(montant);
+        }
+
+        // Fonction pour mettre à jour les statistiques
+        function updateStats() {
+            const currentYear = new Date().getFullYear();
+            
+            // Mise à jour des années affichées
+            document.getElementById('annee-revenus').textContent = currentYear;
+            document.getElementById('annee-charges').textContent = currentYear;
+            document.getElementById('annee-reunions').textContent = currentYear;
+
+            // Récupération et calcul des données
+            const revenus = JSON.parse(localStorage.getItem('revenus')) || [];
+            const charges = JSON.parse(localStorage.getItem('charges')) || [];
+            const reunions = JSON.parse(localStorage.getItem('rcpMeetings')) || [];
+            const professionnels = JSON.parse(localStorage.getItem('professionnels')) || [];
+
+            // Calcul des totaux pour l'année en cours
+            const totalRevenus = revenus
+                .filter(rev => new Date(rev.date).getFullYear() === currentYear)
+                .reduce((sum, rev) => sum + parseFloat(rev.montant || 0), 0);
+
+            const totalCharges = charges
+                .filter(chg => new Date(chg.date).getFullYear() === currentYear)
+                .reduce((sum, chg) => sum + parseFloat(chg.montant || 0), 0);
+
+            const totalReunions = reunions
+                .filter(reu => new Date(reu.date).getFullYear() === currentYear)
+                .length;
+
+            const totalAssocies = professionnels
+                .filter(pro => pro.Statut === 'Associé' || pro.Statut === 'Cogérant')
+                .length;
+
+            // Mise à jour de l'affichage
+            document.getElementById('total-revenus').textContent = formatMontant(totalRevenus);
+            document.getElementById('total-charges').textContent = formatMontant(totalCharges);
+            document.getElementById('total-reunions').textContent = totalReunions;
+            document.getElementById('total-associes').textContent = totalAssocies;
+        }
+
+        // Fonction pour mettre à jour les paramètres
+        function updateParametres() {
+            const params = JSON.parse(localStorage.getItem('parametresRepartition')) || {
+                partFixe: 50,
+                facteurCogerant: 1.7,
+                partRCP: 25,
+                partProjets: 25
+            };
+
+            document.getElementById('param-part-fixe').textContent = params.partFixe + '%';
+            document.getElementById('param-facteur-cogerant').textContent = '×' + params.facteurCogerant;
+            document.getElementById('param-part-rcp').textContent = params.partRCP + '%';
+            document.getElementById('param-part-projets').textContent = params.partProjets + '%';
+        }
+
+        // Fonction pour afficher le graphique de répartition
+        function updateGraphique() {
+            const ctx = document.getElementById('repartition-chart').getContext('2d');
+            const professionnels = JSON.parse(localStorage.getItem('professionnels')) || [];
+            const params = JSON.parse(localStorage.getItem('parametresRepartition')) || {
+                partFixe: 50,
+                facteurCogerant: 1.7,
+                partRCP: 25,
+                partProjets: 25
+            };
+
+            // Calcul des montants
+            const revenus = JSON.parse(localStorage.getItem('revenus')) || [];
+            const charges = JSON.parse(localStorage.getItem('charges')) || [];
+            const totalRevenus = revenus.reduce((sum, rev) => sum + parseFloat(rev.montant || 0), 0);
+            const totalCharges = charges.reduce((sum, chg) => sum + parseFloat(chg.montant || 0), 0);
+            const montantARepartir = Math.max(0, totalRevenus - totalCharges);
+
+            // Préparation des données pour le graphique
+            const data = professionnels
+                .filter(pro => pro.Statut === 'Associé' || pro.Statut === 'Cogérant')
+                .map(pro => ({
+                    nom: pro.Nom,
+                    statut: pro.Statut
+                }));
+
+            if (window.repartitionChart) {
+                window.repartitionChart.destroy();
+            }
+
+            window.repartitionChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data.map(item => item.nom),
+                    datasets: [
+                        {
+                            label: `Part fixe (${params.partFixe}%)`,
+                            data: data.map(item => 
+                                (montantARepartir * params.partFixe / 100) / data.length * 
+                                (item.statut === 'Cogérant' ? params.facteurCogerant : 1)
+                            ),
+                            backgroundColor: '#2196F3'
+                        },
+                        {
+                            label: `Part RCP (${params.partRCP}%)`,
+                            data: data.map(() => montantARepartir * params.partRCP / 100 / data.length),
+                            backgroundColor: '#64B5F6'
+                        },
+                        {
+                            label: `Part Projets (${params.partProjets}%)`,
+                            data: data.map(() => montantARepartir * params.partProjets / 100 / data.length),
+                            backgroundColor: '#4CAF50'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            stacked: true,
+                            grid: {
+                                display: false
+                            }
+                        },
+                        y: {
+                            stacked: true,
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return formatMontant(value);
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + formatMontant(context.raw);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialisation et mise à jour périodique
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mise à jour initiale
+            updateStats();
+            updateParametres();
+            updateGraphique();
+
+            // Écouter les changements dans le localStorage
+            window.addEventListener('storage', function(e) {
+                if (['revenus', 'charges', 'rcpMeetings', 'professionnels', 'parametresRepartition'].includes(e.key)) {
+                    updateStats();
+                    updateParametres();
+                    updateGraphique();
+                }
+            });
+
+            // Mise à jour périodique
+            setInterval(() => {
+                updateStats();
+                updateParametres();
+                updateGraphique();
+            }, 30000); // Mise à jour toutes les 30 secondes
+        });
+    </script>
+</body>
+</html> 
